@@ -16,23 +16,42 @@ import org.apache.struts.action.ActionMessage;
  */
 public class OperandosForm extends org.apache.struts.action.ActionForm {
     
-    private int operando1, operando2;
+    private String operando1, operando2;
+    private double dato1, dato2;
 
-    public int getOperando1() {
+    public String getOperando1() {
         return operando1;
     }
 
-    public void setOperando1(int operando1) {
+    public void setOperando1(String operando1) {
         this.operando1 = operando1;
     }
 
-    public int getOperando2() {
+    public String getOperando2() {
         return operando2;
     }
 
-    public void setOperando2(int operando2) {
+    public void setOperando2(String operando2) {
         this.operando2 = operando2;
     }
+
+    public double getDato1() {
+        return dato1;
+    }
+
+    public void setDato1(double dato1) {
+        this.dato1 = dato1;
+    }
+
+    public double getDato2() {
+        return dato2;
+    }
+
+    public void setDato2(double dato2) {
+        this.dato2 = dato2;
+    }
+
+   
     
     
 
@@ -51,12 +70,19 @@ public class OperandosForm extends org.apache.struts.action.ActionForm {
      * @param request The HTTP Request we are processing.
      * @return
      */
+    @Override
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        /*if (getName() == null || getName().length() < 1) {
-            errors.add("name", new ActionMessage("error.name.required"));
+        if (operando1 == null || operando1.trim().length() < 1) {
+            errors.add("Operando 1", new ActionMessage("error.operando1.necesario"));
             // TODO: add 'error.name.required' key to your resources
-        }*/
+        }
+        
+        if (operando2 == null || operando2.trim().length() < 1) {
+            errors.add("Operando 2", new ActionMessage("error.operando2.necesario"));
+            // TODO: add 'error.name.required' key to your resources
+        }
+        
         return errors;
     }
 }
