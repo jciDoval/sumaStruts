@@ -18,6 +18,7 @@ public class OperandosForm extends org.apache.struts.action.ActionForm {
     
     private String operando1, operando2;
     private double dato1, dato2;
+    ActionErrors errors = new ActionErrors();
 
     public String getOperando1() {
         return operando1;
@@ -72,7 +73,8 @@ public class OperandosForm extends org.apache.struts.action.ActionForm {
      */
     @Override
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-        ActionErrors errors = new ActionErrors();
+        errors.clear();
+        
         if (operando1 == null || operando1.trim().length() < 1) {
             errors.add("Operando 1", new ActionMessage("error.operando1.necesario"));
             // TODO: add 'error.name.required' key to your resources
