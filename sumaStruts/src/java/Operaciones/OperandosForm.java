@@ -18,10 +18,19 @@ public class OperandosForm extends org.apache.struts.action.ActionForm {
     
     private String operando1, operando2;
     private double dato1, dato2;
+    private double resultado;
     ActionErrors errors = new ActionErrors();
 
     public String getOperando1() {
         return operando1;
+    }
+
+    public double getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(double resultado) {
+        this.resultado = resultado;
     }
 
     public void setOperando1(String operando1) {
@@ -83,6 +92,24 @@ public class OperandosForm extends org.apache.struts.action.ActionForm {
         if (operando2 == null || operando2.trim().length() < 1) {
             errors.add("Operando 2", new ActionMessage("error.operando2.necesario"));
             // TODO: add 'error.name.required' key to your resources
+        }
+        
+        try
+        {
+            dato1 = Double.parseDouble(operando1);
+        }
+        catch(NumberFormatException e)
+        {
+            errors.add("Formato1", new ActionMessage("error.formato1"));
+        }
+        
+        try
+        {
+            dato2 = Double.parseDouble(operando2);
+        }
+        catch(NumberFormatException e)
+        {
+            errors.add("Formato2", new ActionMessage("error.formato2"));
         }
         
         return errors;
