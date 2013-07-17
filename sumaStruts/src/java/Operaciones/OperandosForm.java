@@ -16,36 +16,25 @@ import org.apache.struts.action.ActionMessage;
  */
 public class OperandosForm extends org.apache.struts.action.ActionForm {
     
-    private String name;
-    private int number;
+    private int operando1, operando2;
 
-    /**
-     * @return
-     */
-    public String getName() {
-        return name;
+    public int getOperando1() {
+        return operando1;
     }
 
-    /**
-     * @param string
-     */
-    public void setName(String string) {
-        name = string;
+    public void setOperando1(int operando1) {
+        this.operando1 = operando1;
     }
 
-    /**
-     * @return
-     */
-    public int getNumber() {
-        return number;
+    public int getOperando2() {
+        return operando2;
     }
 
-    /**
-     * @param i
-     */
-    public void setNumber(int i) {
-        number = i;
+    public void setOperando2(int operando2) {
+        this.operando2 = operando2;
     }
+    
+    
 
     /**
      *
@@ -64,10 +53,10 @@ public class OperandosForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        if (getName() == null || getName().length() < 1) {
+        /*if (getName() == null || getName().length() < 1) {
             errors.add("name", new ActionMessage("error.name.required"));
             // TODO: add 'error.name.required' key to your resources
-        }
+        }*/
         return errors;
     }
 }
