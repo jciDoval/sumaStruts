@@ -19,6 +19,7 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/" name="OperandosForm" path="/Suma" scope="session" type="Operaciones.OperandosAction"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     
