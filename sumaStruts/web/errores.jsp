@@ -13,7 +13,7 @@
         <title>Página de errores</title>
     </head>
     <body>
-        Se ha producido errores.
+        Se han producido errores.
         <html:errors></html:errors>
     </body>
 </html>
