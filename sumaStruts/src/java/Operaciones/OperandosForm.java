@@ -19,8 +19,18 @@ public class OperandosForm extends org.apache.struts.action.ActionForm {
     private String operando1, operando2;
     private double dato1, dato2;
     private double resultado;
-    ActionErrors errors = new ActionErrors();
+    private ActionErrors errors = new ActionErrors();
 
+    public ActionErrors getErrors() {
+        return errors;
+    }
+
+    public void setErrors(ActionErrors errors) {
+        this.errors = errors;
+    }
+
+    
+    
     public String getOperando1() {
         return operando1;
     }
@@ -94,6 +104,7 @@ public class OperandosForm extends org.apache.struts.action.ActionForm {
             // TODO: add 'error.name.required' key to your resources
         }
         
+        //try para el primer operando.
         try
         {
             dato1 = Double.parseDouble(operando1);
@@ -103,6 +114,8 @@ public class OperandosForm extends org.apache.struts.action.ActionForm {
             errors.add("Formato1", new ActionMessage("error.formato1"));
         }
         
+        
+        //Try para el segundo operando
         try
         {
             dato2 = Double.parseDouble(operando2);
