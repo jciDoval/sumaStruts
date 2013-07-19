@@ -21,7 +21,7 @@
     <action-mappings>
         <action input="/" name="OperandosForm" path="/Suma" scope="session" type="Operaciones.OperandosAction">
             <forward name="success" path="/resultado.jsp"></forward>
-            <forward name="fallo" path="/errores.jsp"></forward>
+            <forward name="fallo" path="/errores.jsp" ></forward>
         </action>
         
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
