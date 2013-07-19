@@ -18,6 +18,7 @@ public class OperandosAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
+    private static final String FAILURE = "fallo";
 
     /**
      * This is the action called from the Struts framework.
@@ -34,6 +35,18 @@ public class OperandosAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-        return mapping.findForward(SUCCESS);
+        OperandosForm datosForm = (OperandosForm)form;
+        
+        if(datosForm.getErrors().isEmpty())
+        {
+            datosForm.setResultado(datosForm.getDato1() + datosForm.getDato2());            
+            return mapping.findForward(SUCCESS);
+        }
+        else
+        {
+            return mapping.findForward(FAILURE);
+        }
+        
+        
     }
 }
